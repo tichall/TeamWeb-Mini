@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리... 할 수 있조</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        @font-face {
+            font-family: 'TTHakgyoansimDotbogiR';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimDotbogiR.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            /* font-weight: 800; */
+            font-style: normal;
+        }   
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'intelone-mono-font-family-regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/intelone-mono-font-family-regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #eff1d7;
+            height: 100%;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+
+        .navbar {
+            background-color: #30911a;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 2px 2px 2px gray;
+            font-family: 'TTHakgyoansimDotbogiR';
+        }
+
+        a {
+            color: #eff1d7;
+            font-size: 100px;
+        }
+
+        a:hover {
+            color: #257213;
+        }
+
+        #guestBookBtn {
+            border: 2px solid #eff1d7;
+            color: #eff1d7;
+            font-size: 1.5rem;
+            float: right;
+            margin-right: 20px;
+        }
+
+        .contents {
+            width: 85%;
+            margin: 0 auto 0 auto;
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: row;
+            margin: 2rem;
+        }
+
+        .profileImgSec {
+            width: 50%;
+            margin: 3rem 0 0 1.5rem;
+        }
+
+        .profileImg {
+            width: 16rem;
+            height: 16rem;
+            border: 5px solid #257213;
+            border-color: #30911a;
+            border-radius: 70%;
+            overflow: hidden;
+            margin: auto;
+            box-shadow: 2px 2px 2px gray;
+        }
+
+        .profileImg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } 
+
+        .profileText {
+            width: 50%;
+            margin-top: 4rem;
+            padding-right: 9rem;
+            font-family: "GmarketSansMedium";
+        } 
+
+        .line1 {
+            margin: 2rem 0 2rem 0;
+        }
+        #memberName {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-right: 2rem;
+        }
+
+        #memberMBTI {
+            font-family: "intelone-mono-font-family-regular";
+            background-color: #1F1F1F;
+            font-size: 1.5rem;
+            color: #52a240;
+            border-radius: 5px;
+            padding: 0 0.5rem 0 0.5rem;
+            
+        }
+
+        .urlBox {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+        .url {
+            width: 2.8em;
+            height: 2.8rem;
+            overflow: hidden;
+            margin: 0.6rem;
+        }
+
+        .url img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #comment {
+            font-size: 1.3rem;
+        }
+
+        .longContent {
+            width: 70%;
+            margin: 5rem auto 5rem auto;
+            font-family: "GmarketSansMedium"
+        }
+
+        .longContent .segment {
+            background-color: #52a240;
+            font-family: "GmarketSansMedium";
+            font-size: 1.6rem;
+            padding: 1rem 1rem 1rem 1.6rem;
+            border-radius: 5px;
+            color: #eff1d7;
+        }
+
+        .segmentText {
+            font-size: 1.3rem;
+            padding: 1.3rem;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <a class="navbar-brand mx-auto" href="#">우리... 할 수 있조</a>    
+        <div class="d-flex" role="search">
+            <button class="btn btn-outline-success" id="guestBookBtn"> ✏️ 방명록</button>
+        </div>
+    </nav>
+
+    <div class="contents">
+        <div class="profile">
+            <div class="profileImgSec">
+                <div class="profileImg">
+                    <img classs="img"
+                    src="./Image/profileLSY.jpg" >
+                </div>
+            </div>
+            <div class="profileText">
+                <div class="line1">
+                    <span id="memberName">이서연</span>
+                    <span id="memberMBTI">INTP</span>
+                </div>
+                
+                
+                <p id="comment">어제보다 오늘 나은 개발자가 되겠습니다!</p>
+                <div class="urlBox">
+                    <div class="url" id="github">
+                        <img src="./Image/github.png" alt="">
+                    </div>
+                    <div class = "url" id ="velog">
+                        <img src="./Image/velog.png" alt="">
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+        <div class="longContent">
+            <div class="element1">
+                <p class="segment">자기 소개</p>
+                <p class="segmentText">안녕하세요:) JAVA 5기 참여하게 된 24살 이서연입니다! 프로젝트 경험도 처음, 자바 스프링 공부도 처음인데 열심히 공부해서 잘 따라가보겠습니다 🙌 아직 아는 건 많이 없지만 앞으로 잘 부탁드려요😉</p>
+            </div>
+
+            <div class="element2">
+                <p class="segment">나의 장점 3가지</p>
+                <p class="segmentText"></p>
+            </div>
+            <div class="element3">
+                <p class="segment">협업 스타일</p>
+                <p class="consegmentText"></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
