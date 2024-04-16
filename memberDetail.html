@@ -16,6 +16,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./memberDetail.css">
+    <link rel="stylesheet" href="./checkPopup.css">
+    <link rel="stylesheet" href="./editPopup.css">
 
 </head>
 <body>
@@ -33,7 +35,7 @@
             <div class="profileText">
                 <div class="line1">
                     <span id="memberName">이서연</span>
-                    <p id="editBtn">수정</p>
+                    <p id="editBtn" onclick="loadPopup()">수정</p>
                 </div>
                 
                 <div class="line2">
@@ -42,7 +44,7 @@
                     <span id="memberTag">#도파민중독</span>
                 </div>
                 
-                <p id="onelineBio">어제보다 오늘 나은 개발자가 되겠습니다!</p>
+                <p id="onelineBio">어제보다 오늘 더 나은 개발자가 되겠습니다!</p>
 
                 <div class="urlBox">
                     <div class="url" id="github">
@@ -90,11 +92,107 @@
         </div>
     </div>
 
+    <!-- 비밀번호 확인 팝업 -->
+    <div class="popup-check" id="popupCheck">
+        <div class="checkSection">
+            <p id="exitPopup" onclick="exitPopup()">✖</p>
+            <div class="checkContent">
+                <p id="alertMsg">개인 코드를 입력해주세요!</p>
+                <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <p id="failMsg">존재하는 개인 코드가 없습니다!</p>
+                <button class="btn mt-3" id="check">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 페이지 수정 팝업 -->
+    <div class="popup-edit" id="popupEdit">
+        <div class="editSection">
+            <p id="exitPopup" onclick="exitPopup()">✖</p>
+            <div class="editImg">
+                <img classs="img"
+                src="./Image/profileLSY.jpg" >
+            </div>
+            <input class="form-control mt-2" type="file" id="image">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Mbti</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">최애 취미</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+
+                <span class="input-group-text" id="inputGroup-sizing-default">나만의 수식어</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">다짐 한 마디</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Github 주소</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">블로그 주소</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">자기소개</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">나만의 장점</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">1</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">2</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">3</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">협업 스타일</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <button class="btn mt-3" id="update">수정하기</button>
+        </div>   
+    </div>
+
 </body>
 <script>
     // 헤더 파일 불러오기
     $(document).ready(function() {
         $("#header").load("./header.html");
     })
+
+    function loadPopup() {
+        document.getElementById('popupCheck').style.display = 'block';
+    }
+
+    function exitPopup() {
+        document.getElementById('popupCheck').style.display = 'none';
+        document.getElementById('popupEdit').style.display = 'none';
+    }
+
+    document.getElementById('check').addEventListener('click', function() {
+        document.getElementById('popupCheck').style.display = 'none';
+        document.getElementById('popupEdit').style.display = 'block';
+    })
+
+    // 실행 안 됨
+    // function loadPopup() {
+    //     $("#popupCheck").style.display = 'block';
+    // }
+
 </script>
 </html>
