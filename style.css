@@ -1,0 +1,252 @@
+@font-face {
+    font-family: 'TTHakgyoansimDotbogiR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimDotbogiR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    /* font-weight: 800; */
+    font-style: normal;
+}  
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background-color: #eff1d7;
+    height: 100%;
+}
+
+.navbar {
+    background-color: #30911a;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 2px gray;
+    font-family: 'TTHakgyoansimDotbogiR';
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    color: #eff1d7;
+}
+
+.navbar-brand:hover {
+    color: lightgray;
+    cursor: pointer;
+}
+
+
+#guestBookBtn, #HomeBtn {
+    border: 2px solid #eff1d7;
+    color: #eff1d7;
+    font-size: 1.5rem;
+    float: right;
+    margin-right: 20px;
+}
+
+#guestBookBtn:hover {
+    box-shadow: 0px 0px 15px gray;
+    color: lightgray;
+    /* 호버 시 텍스트 색상 변경 */
+    border-color: #ffffff;
+    /* 호버 시 테두리 색상 변경 */
+}
+
+#HomeBtn:hover {
+    color: lightgray;
+    /* 호버 시 텍스트 색상 변경 */
+    border-color: #ffffff;
+    /* 호버 시 테두리 색상 변경 */
+}
+
+.container {
+    height: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "GmarketSansMedium", sans-serif;
+}
+
+
+.card {
+    position: relative;
+    /* 자기 자신의 기본 위치에서 상대적으로 이동 */
+    background: #fcfcf4;
+    border-radius: 10%;
+    width: 220px;
+    height: 430px;
+    margin: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px gray;
+    /* 테두리 추가 */
+}
+
+section .image {
+    height: 140px;
+    width: 140px;
+    border-radius: 70%;
+    background-color: #fcfcf4;
+    overflow: hidden;
+    margin: 1rem auto 1rem auto;
+    box-shadow: 0px 0px 15px gray;
+}
+
+section .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    z-index: 100;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    height: 30%;
+    width: 100%;
+    background: #30911a;
+    border-radius: 0 0 0 0;
+}
+
+.card .name-profession {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    /* flex 로 컨테이너 지정 후 direction 으로 세로정렬 */
+    align-items: center;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.blog-icon,
+.github-icon {
+    color: black;
+    margin: 10px;
+    font-size: 1.5rem;
+    /* 아이콘 크기 설정 */
+}
+
+.blog-icon:hover,
+.github-icon:hover {
+    opacity: 0.8;
+    background: #fff;
+    /* 호버 시 투명도 조절 */
+    cursor: pointer;
+    /* 호버 시 커서를 포인터로 변경 */
+    color: #30911a;
+    /* 호버 시 컬러를 빨간색으로 변경 */
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    /* 요소를 가로로 정렬 */
+    gap: 20px;
+}
+
+.card .aboutMe {
+    display: flex;
+    width: 150px;
+    justify-content: space-around;
+    margin-top: 1rem;
+    background: #30911a;
+    outline: none;
+    border: none;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.aboutMe:hover {
+    background: #30911a;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px gray;
+}
+
+.promise,
+.tendency {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.name {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.notice-container {
+    display: flex;
+    justify-content: center;
+    /* 요소들을 가운데 정렬합니다. */
+    gap: 30px;
+    /* 요소들 사이의 간격을 설정합니다. */
+    margin-top: 3rem;
+    /* 위쪽 간격을 추가합니다. */
+}
+
+.notice {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 15px gray;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    width: calc(50% - 10px);
+    /* 컨테이너의 절반 크기로 설정하고 간격을 빼줍니다. */
+    max-width: 400px;
+    /* 최대 너비를 설정합니다. */
+    line-height: 1.5;
+    font-family: "GmarketSansMedium", cursive;
+    font-style: normal;
+
+}
+
+.notice-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #30911a;
+    text-align: center;
+}
+
+.notice-content {
+    font-size: 15px;
+    /* text-align: center; */
+}
+
+.highlight {
+    color: #30911a;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+

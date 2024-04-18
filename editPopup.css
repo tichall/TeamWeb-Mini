@@ -1,0 +1,22 @@
+
+.editSection {
+    height: 70%;
+    overflow-x: scroll;
+    margin-bottom: 3rem;
+}
+
+#editImgSrc {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.editSection span, label {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#update {
+    float: right;
+    background-color: #52a240;
+    color: #eff1d7;
+}

@@ -19,6 +19,10 @@
     font-style: normal;
 }
 
+.body {
+    overflow: hidden;
+}
+
 .contents {
     width: 85%;
     margin: 0 auto 0 auto;
@@ -38,15 +42,22 @@
 .profileImg {
     width: 16rem;
     height: 16rem;
-    border: 5px solid #257213;
-    border-color: #30911a;
     border-radius: 70%;
     overflow: hidden;
     margin: auto;
-    box-shadow: 2px 2px 2px gray;
+    box-shadow: 0px 0px 15px gray;
 }
 
-.profileImg img {
+.editImgSec {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 70%;
+    overflow: hidden;
+    margin: 3rem auto 3rem auto;
+    box-shadow: 0px 0px 15px gray;
+}
+
+img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -79,6 +90,10 @@
     text-decoration: underline;
 }
 
+#editBtn:hover {
+    cursor: pointer;
+}
+
 .line2 {
     margin: 1rem 0 1rem 0;
 }
@@ -99,20 +114,24 @@
     justify-content: flex-end;
 }
 
+#blogLink, #githubLink {
+    font-size: 2.8rem;
+    overflow: hidden;
+    margin: 0.4rem;
+    background-color: #eff1d7;
+}
+
 .url {
     width: 2.8em;
     height: 2.8rem;
     overflow: hidden;
-    margin: 0.6rem;
+    margin: 0.4rem;
+}
+.url:hover {
+    cursor: pointer;
 }
 
-.url img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-#onelineBio {
+#memberBio {
     font-size: 1.3rem;
 }
 
@@ -154,4 +173,6 @@
     padding: 0.1rem 0;
     margin-right: 1rem;
 }
+
+
 

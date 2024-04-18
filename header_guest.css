@@ -10,10 +10,6 @@ body {
     height: 100%;
 }
 
-.navbar-brand {
-    font-size: 1.8rem;
-}
-
 .navbar {
     background-color: #30911a;
     border-radius: 0 0 10px 10px;
@@ -21,19 +17,33 @@ body {
     font-family: 'TTHakgyoansimDotbogiR';
 }
 
+.navbar-brand {
+    font-size: 1.8rem;
+}
+
+.navbar-brand:hover {
+    color: lightgray;
+    cursor: pointer;
+}
+
 a {
     color: #eff1d7;
-    font-size: 100px;
+    font-size: 1.5rem; /* 텍스트 크기 조정 */
 }
 
 a:hover {
     color: #257213;
 }
 
-#guestBookBtn {
+#guestBookBtn, #HomeBtn {
     border: 2px solid #eff1d7;
     color: #eff1d7;
-    font-size: 1.5rem;
-    float: right;
+    font-size: 1.5rem; /* 버튼 텍스트 크기 조정 */
+    padding: 0.5rem 1rem; /* 버튼 내부 여백 조정 */
     margin-right: 20px;
 }
+
+#HomeBtn:hover {
+    color: lightgray;
+}
+
