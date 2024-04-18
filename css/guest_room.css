@@ -1,0 +1,84 @@
+@import url("./font.css");
+
+.container {
+    font-family: 'GmarketSansMedium';
+}
+
+.button_container {
+    margin-top: 3rem;
+}
+
+.table-sm>:not(caption)>*>* {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.textContainer .basicMsg {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.table_container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    width: 75%;
+    background-color: #fbfcf1;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+thead th:nth-child(1) {
+    width: 20%;
+}
+
+thead th:nth-child(2) {
+    width: 60%;
+}
+
+thead th:nth-child(3) {
+    width: 20%;
+}
+
+th, td {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.btnContainer {
+    position: fixed;
+    bottom: 7%;
+    right: 8%;
+}
+
+.editBtn, .addBtn {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: #30911a;
+    text-align: center;
+    margin-bottom: 1rem;
+    box-shadow: 0px 0px 15px gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editBtn:hover, .addBtn:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 15px black;
+}
+
+.btnContainer .btnText {
+    font-size: 1rem;
+    color: #fbfcf1;
+}
+
+

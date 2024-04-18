@@ -1,9 +1,4 @@
-@font-face {
-    font-family: 'TTHakgyoansimDotbogiR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimDotbogiR.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
+@import url("./font.css");
 
 body {
     background-color: #eff1d7;
