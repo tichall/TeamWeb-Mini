@@ -21,12 +21,12 @@ body {
     cursor: pointer;
 }
 
-a {
+nav>a {
     color: #eff1d7;
     font-size: 1.5rem; /* 텍스트 크기 조정 */
 }
 
-a:hover {
+nav>a:hover {
     color: #257213;
 }
 

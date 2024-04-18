@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>방명록 게시판</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/header_guest.css">
+    
+    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/guest_room.css">
     
     <script type="module">
@@ -46,10 +45,8 @@
             querySnapshot.forEach((doc) => {
                 const name = doc.data()["input-name"];
                 const guestbook = doc.data()["input-guestbook"];
-                console.log(guestbook);
                 const date = doc.data()["date"];
-                console.log(date);
-
+   
                 const newRow = document.createElement("tr");
 
                 const nameCell = document.createElement("td");
@@ -85,12 +82,6 @@
 
 <body>
     <div id="header"></div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <a class="navbar-brand mx-auto" onclick = "location.href='./index.html'">우리... 할 수 있조 🔥</a>
-        <div class="d-flex" role="search">
-            <button class="btn btn-outline-success" id="HomeBtn">🏠 홈</button>
-        </div>
-    </nav>
     <div class="container">
         <div class="textContainer">
             <div class="basicMsg">팀 멤버들에게 메시지를 남겨보세요!</div>
@@ -123,7 +114,11 @@
     
 
     <script>
-
+        // 헤더 파일 불러오기
+        $(document).ready(function() {
+            $("#header").load("./header_guest.html");
+        })
+        
         // 만들 팝업창 크기 절반만큼 빼주기
         var popupX = (document.body.offsetWidth / 2) - (600 / 2);
         var popupY= (window.screen.height / 2) - (600 / 2);
@@ -131,10 +126,10 @@
         function openGuestInputPage() {
             window.open('guest_input.html', '_blank', 'width=600, height=400, left=' + popupX + ',top=' + popupY);
         }
+
         function openEditPage() {
             window.open('guest_edit.html', '_blank', 'width=600, height=400, left=' + popupX + ',top=' + popupY);
         }
-
     </script>
 
 </body>
