@@ -1,75 +1,10 @@
-@font-face {
-    font-family: 'TTHakgyoansimDotbogiR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimDotbogiR.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    /* font-weight: 800; */
-    font-style: normal;
-}  
-
-@font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+@import url("./font.css");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-}
-
-body {
-    background-color: #eff1d7;
-    height: 100%;
-}
-
-.navbar {
-    background-color: #30911a;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 2px 2px 2px gray;
-    font-family: 'TTHakgyoansimDotbogiR';
-}
-
-.navbar-brand {
-    font-size: 1.8rem;
-    color: #eff1d7;
-}
-
-.navbar-brand:hover {
-    color: lightgray;
-    cursor: pointer;
-}
-
-
-#guestBookBtn, #HomeBtn {
-    border: 2px solid #eff1d7;
-    color: #eff1d7;
-    font-size: 1.5rem;
-    float: right;
-    margin-right: 20px;
-}
-
-#guestBookBtn:hover {
-    box-shadow: 0px 0px 15px gray;
-    color: lightgray;
-    /* 호버 시 텍스트 색상 변경 */
-    border-color: #ffffff;
-    /* 호버 시 테두리 색상 변경 */
-}
-
-#HomeBtn:hover {
-    color: lightgray;
-    /* 호버 시 텍스트 색상 변경 */
-    border-color: #ffffff;
-    /* 호버 시 테두리 색상 변경 */
 }
 
 .container {
@@ -82,11 +17,10 @@ body {
     font-family: "GmarketSansMedium", sans-serif;
 }
 
-
 .card {
     position: relative;
     /* 자기 자신의 기본 위치에서 상대적으로 이동 */
-    background: #fcfcf4;
+    background: #fbfcf1;
     border-radius: 10%;
     width: 220px;
     height: 430px;
@@ -215,7 +149,7 @@ section .image img {
 }
 
 .notice {
-    background-color: white;
+    background-color: #fbfcf1;
     padding: 20px;
     box-shadow: 0px 0px 15px gray;
     /* border: 1px solid #ccc; */

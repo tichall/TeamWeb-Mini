@@ -6,39 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>방명록 페이지</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./header_guest.css">
-    <style>
-        @font-face {
-            font-family: 'Pretendard-Regular';
-            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-            /* font-weight: 800; */
-            font-style: normal;
-        } 
-
-        .justify-content-center {
-            margin: 3rem;
-            font-family: 'Pretendard-Regular';
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .col-md-2 {
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            text-align: center;
-        }
-
-        #registbtn {
-            background-color: #30911a;
-            border-color: #30911a;
-            font-family: 'Pretendard-Regular';
-        }
-    </style>
+    
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/guestPopup.css">
+    
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
@@ -46,28 +17,36 @@
         import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
         const firebaseConfig = {
-            apiKey: "AIzaSyDh6zLnyROVOfCWvNFUc7ZuA8vwcfetQfg",
-            authDomain: "sparta-c733d.firebaseapp.com",
-            projectId: "sparta-c733d",
-            storageBucket: "sparta-c733d.appspot.com",
-            messagingSenderId: "1031155272900",
-            appId: "1:1031155272900:web:cb870f935defdb8088cd91",
-            measurementId: "G-E2LVXM0BPR"
+        apiKey: "AIzaSyDx0t5JFwPcrDnqFICKyrrML2N1I60fWn0",
+        authDomain: "teamwebpage-51e54.firebaseapp.com",
+        projectId: "teamwebpage-51e54",
+        storageBucket: "teamwebpage-51e54.appspot.com",
+        messagingSenderId: "349501855402",
+        appId: "1:349501855402:web:12e8c26e7a8cbad03ba2d3"
         };
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+        // 헤더 파일 불러오기
+        $(document).ready(function() {
+            $("#header").load("./header_popup.html");
+        })
 
         $("#registbtn").click(async function () {
             let name = $('#input-name').val();
             let passwprd = $('#input-password').val();
             let guestbook = $('#input-guestbook').val();
+            let today = new Date();
+            let formatDate = today.getFullYear().toString().slice(-2)+ "." + (today.getMonth()+1) + "." + today.getDate();
 
             let doc = {
                 'input-name': name,
                 'input-password': passwprd,
-                'input-guestbook': guestbook
+                'input-guestbook': guestbook, 
+                'timestamp': today, 
+                'date': formatDate
             };
+
             await addDoc(collection(db, "guestbook_entries"), doc);
 
             alert('등록되었습니다!');
@@ -80,11 +59,9 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <a class="navbar-brand mx-auto" href="#">우리... 할 수 있조 🔥</a>
-        <div class="d-flex" role="search">
-        </div>
-    </nav>
+    <!-- 헤더 섹션-->
+    <div id="header"></div>
+
     <!-- 이름, 방명록 작성 입력 필드 -->
     <div class="total_box">
         <div class="row justify-content-center">

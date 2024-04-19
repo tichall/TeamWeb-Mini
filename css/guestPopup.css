@@ -1,0 +1,23 @@
+@import url("./font.css");
+
+.total_box .justify-content-center {
+    margin: 3rem;
+    font-family: 'Pretendard-Regular';
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.col-md-2 {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+
+#registbtn, #editbtn {
+    background-color: #30911a;
+    border-color: #30911a;
+    font-family: 'Pretendard-Regular';
+}

@@ -4,22 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <link rel="stylesheet" href="./style.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
-
-    <!-- 부트스트랩 적용 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 제이쿼리 적용-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
 
     <title>우리... 할 수 있죠</title>
 
@@ -31,14 +19,13 @@
         import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
         const firebaseConfig = {
-            apiKey: "AIzaSyDh6zLnyROVOfCWvNFUc7ZuA8vwcfetQfg",
-            authDomain: "sparta-c733d.firebaseapp.com",
-            projectId: "sparta-c733d",
-            storageBucket: "sparta-c733d.appspot.com",
-            messagingSenderId: "1031155272900",
-            appId: "1:1031155272900:web:cb870f935defdb8088cd91",
-            measurementId: "G-E2LVXM0BPR"
-        };
+    apiKey: "AIzaSyDx0t5JFwPcrDnqFICKyrrML2N1I60fWn0",
+    authDomain: "teamwebpage-51e54.firebaseapp.com",
+    projectId: "teamwebpage-51e54",
+    storageBucket: "teamwebpage-51e54.appspot.com",
+    messagingSenderId: "349501855402",
+    appId: "1:349501855402:web:12e8c26e7a8cbad03ba2d3"
+    };
 
         // Firebase 인스턴스 초기화
         const app = initializeApp(firebaseConfig);
@@ -96,22 +83,13 @@
             
             });
 
-            $(document).on("click", "#guestBookBtn", function () {
-                window.location.href = "guest_room.html";
-            });
-
         })
     </script>
 
 </head>
 
-<body style="background-color: #eff1d7;">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <a class="navbar-brand mx-auto" onclick = "location.href='./index.html'" style="font-size: 1.8rem;">우리... 할 수 있조 🔥</a>
-        <div class="d-flex" role="search">
-            <button class="btn btn-outline-success" id="guestBookBtn">✏️ 방명록</button>
-        </div>
-    </nav>
+<body>
+    <div id="header"></div>
 
     <div class="notice-container">
         <div class="notice">
@@ -127,15 +105,17 @@
             <p class="notice-content"><span class="highlight">✔</span> 학습에 충실히 하며, 목표한 바 달성하기 !! 포기하지않고 열심히 해봅시다. !!</p>
         </div>
         </div>
-
-
     <section>
         <div class="container">
             <div id="member" class="content">
             </div>
     </section>
 
-
 </body>
-
+<script>
+    // 헤더 파일 불러오기
+    $(document).ready(function() {
+        $("#header").load("./header.html");
+    })
+</script>
 </html>
