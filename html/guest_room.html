@@ -9,75 +9,6 @@
     
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/guest_room.css">
-    
-    <script type="module">
-        // Firebase SDK 라이브러리 가져오기
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-        $(document).ready(function () {
-            $("#HomeBtn").click(function () {
-                window.location.href = "index.html";
-            });
-        });
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyDx0t5JFwPcrDnqFICKyrrML2N1I60fWn0",
-            authDomain: "teamwebpage-51e54.firebaseapp.com",
-            projectId: "teamwebpage-51e54",
-            storageBucket: "teamwebpage-51e54.appspot.com",
-            messagingSenderId: "349501855402",
-            appId: "1:349501855402:web:12e8c26e7a8cbad03ba2d3"
-        };
-
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        let entryNumber = 1;
-
-        async function populateTable() {
-            const snap = collection(db, "guestbook_entries")
-            const querySnapshot = await getDocs(query(snap, orderBy("timestamp", "desc")));
-            
-            document.querySelector("tbody").innerHTML = ""; 
-            entryNumber = 0; 
-
-            querySnapshot.forEach((doc) => {
-                const name = doc.data()["input-name"];
-                const guestbook = doc.data()["input-guestbook"];
-                const date = doc.data()["date"];
-   
-                const newRow = document.createElement("tr");
-
-                const nameCell = document.createElement("td");
-                nameCell.textContent = name;
-                newRow.appendChild(nameCell);
-
-                const guestbookCell = document.createElement("td");
-                guestbookCell.textContent = guestbook;
-                newRow.appendChild(guestbookCell);
-
-                const dateCell = document.createElement("td");
-                dateCell.textContent = date;
-                newRow.appendChild(dateCell);
-
-                document.querySelector("tbody").appendChild(newRow);
-                entryNumber++;
-            });
-            
-            $("#showNum").text("총 " + entryNumber + "개의 방명록이 있습니다!");
-        }
-
-        window.addEventListener('message', async (event) => {
-            if (event.data === 'guestbookSubmitted') {
-                await populateTable();
-            } else if (event.data === 'guestbookEdited') {
-                await populateTable();
-            }
-        });
-
-        populateTable();
-    </script>
 </head>
 
 <body>
@@ -112,7 +43,7 @@
         </div>
     </div>
     
-
+    <script type="module" src="../script/guest_room.js"></script>
     <script>
         // 헤더 파일 불러오기
         $(document).ready(function() {

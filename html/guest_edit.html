@@ -10,72 +10,6 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/guestPopup.css">
     
-    <script type="module">
-        // Firebase SDK 라이브러리 가져오기
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, where, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-        apiKey: "AIzaSyDx0t5JFwPcrDnqFICKyrrML2N1I60fWn0",
-        authDomain: "teamwebpage-51e54.firebaseapp.com",
-        projectId: "teamwebpage-51e54",
-        storageBucket: "teamwebpage-51e54.appspot.com",
-        messagingSenderId: "349501855402",
-        appId: "1:349501855402:web:12e8c26e7a8cbad03ba2d3"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // 헤더 파일 불러오기
-        $(document).ready(function() {
-            $("#header").load("./header_popup.html");
-        })
-
-        $("#editbtn").click(async function () {
-            var name = $('#input-name').val();
-            var password = $('#input-password').val();
-
-            const q = query(collection(db, "guestbook_entries"), where("input-name", "==", name), where("input-password", "==", password));
-            const querySnapshot = await getDocs(q);
-
-            if (!querySnapshot.empty) {
-                querySnapshot.forEach(async (doc) => {
-                    var data = doc.data();
-                    var id = doc.id;
-                    var message = $('#input-guestbook').val();
-
-                    if (message.trim() === '') {
-                        await deleteDoc(doc.ref)
-                            .then(() => {
-                                alert("방명록이 삭제되었습니다.");
-                                window.opener.postMessage("guestbookEdited", "*");
-                                window.close();
-                            })
-                            .catch((error) => {
-                                console.error("Error removing document: ", error);
-                            });
-                    } else {
-                        await updateDoc(doc.ref, {
-                            'input-guestbook': message
-                        })
-                        .then(() => {
-                            alert("방명록이 수정되었습니다.");
-                            window.opener.postMessage("guestbookEdited", "*");
-                            window.close();
-                        })
-                        .catch((error) => {
-                            console.error("Error updating document: ", error);
-                        });
-                    }
-                });
-            } else {
-                alert("이름 또는 비밀번호가 잘못되었습니다. 수정/삭제를 진행할 수 없습니다.");
-            }
-        });
-
-    </script>
-    
 </head>
 
 <body>
@@ -117,6 +51,15 @@
             </div>
         </div>
     </div>
+
+    <script type="module" src="../script/guest_edit.js">
+    </script>
+    <script>
+        // 헤더 파일 불러오기
+        $(document).ready(function() {
+            $("#header").load("./header_popup.html");
+        })
+    </script>
 </body>
 
 </html>

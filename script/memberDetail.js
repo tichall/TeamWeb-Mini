@@ -1,5 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore, doc, collection, setDoc, getDocs, getDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { initializeFirebase } from "./firebaseInit.js";
+
+import { getFirestore, doc, getDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 import {
     getStorage,
@@ -7,17 +8,9 @@ import {
     uploadBytesResumable, getDownloadURL, deleteObject
     } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDx0t5JFwPcrDnqFICKyrrML2N1I60fWn0",
-    authDomain: "teamwebpage-51e54.firebaseapp.com",
-    projectId: "teamwebpage-51e54",
-    storageBucket: "teamwebpage-51e54.appspot.com",
-    messagingSenderId: "349501855402",
-    appId: "1:349501855402:web:12e8c26e7a8cbad03ba2d3"
-};
   
 // 파이어베이스 초기화 
-const app = initializeApp(firebaseConfig);
+const app = initializeFirebase();
 const db = getFirestore(app);
 const storage = getStorage(app);
 
@@ -28,6 +21,8 @@ function getParameterByName(name) {
 
 let userId = getParameterByName("userid");
 const pageRef = doc(db, "team_member", userId);
+
+window.onload = displayDetailpage;
 
 // 멤버 디테일 페이지 세팅 
 export async function displayDetailpage() {
@@ -58,20 +53,12 @@ export async function displayDetailpage() {
         class="fa-brands fa-github github-icon" id="githubLink"></i></a>`
         );
         
-
-                
-                `<div class="url" id="memberGithub" onclick= "window.open('${object.memberGithub}')"
-                >
-                    <img src="./Image/github.png">
-                </div>
-                <div class = "url" id ="memberBlog" onclick= "window.open('${object.memberBlog}')">
-                    <img src="./Image/blog.png">
-                </div>`
     $('#memberIntro').text(object.memberIntro);
     $('#memberPos1').text(object.memberPos1);
     $('#memberPos2').text(object.memberPos2);
     $('#memberPos3').text(object.memberPos3);
     $('#memberStyle').text(object.memberStyle);
+    
 
 }
 
@@ -108,6 +95,7 @@ export async function loadPrev() {
     $("#updateStyle").text(object.memberStyle);
     
 };
+
 
 // 팝업에서 수정 버튼 클릭 시 실행 
 $("#update").click(async function (){
@@ -154,6 +142,7 @@ $("#update").click(async function (){
     
 })
 
+// 실제 데이터베이스 업데이트
 function setUpdate(url) {
     let setData = {
         memberName : $("#updateName").val(),

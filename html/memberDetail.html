@@ -9,7 +9,7 @@
     <!-- 제이쿼리 적용 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    /<link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/memberDetail.css">
     <link rel="stylesheet" href="../css/checkPopup.css">
     <link rel="stylesheet" href="../css/editPopup.css">
@@ -154,12 +154,7 @@
         </div>   
     </div>
 
-</body>
 <script type="module" src="../script/memberDetail.js"></script>
-<script type="module">
-    import { displayDetailpage } from "../script/memberDetail.js"; 
-    window.onload = displayDetailpage;
-</script>
 <script>
     // 헤더 파일 불러오기
     $(document).ready(function() {
@@ -178,10 +173,6 @@
         document.getElementById('popupEdit').style.display = 'none';
     }
 
-    $(document).on("click", "#guestBookBtn", function () {
-        window.location.href = "guest_room.html";
-    });
-
     // 수정 창 이미지 미리보기 구현
     function loadNewFile(input) {
         let file = input.files[0];
@@ -189,5 +180,5 @@
         $("#updateImg").attr('src', newSrc);
     }
 </script>
-
+</body>
 </html>
