@@ -11,81 +11,6 @@
 
     <title>우리... 할 수 있죠</title>
 
-    <script type="module">
-        // Firebase SDK 라이브러리 가져오기
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-    apiKey: "AIzaSyDx0t5JFwPcrDnqFICKyrrML2N1I60fWn0",
-    authDomain: "teamwebpage-51e54.firebaseapp.com",
-    projectId: "teamwebpage-51e54",
-    storageBucket: "teamwebpage-51e54.appspot.com",
-    messagingSenderId: "349501855402",
-    appId: "1:349501855402:web:12e8c26e7a8cbad03ba2d3"
-    };
-
-        // Firebase 인스턴스 초기화
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        let docs = await getDocs(collection(db, "team_member"));
-        docs.forEach((doc) => {
-            let row = doc.data();
-            
-            let memberBio = row['memberBio'];
-            let memberBlog = row['memberBlog'];
-            let memberGithub = row['memberGithub'];
-            let memberHobby = row['memberHobby'];
-            let memberImage = row['memberImage'];
-            let memberIntro = row['memberIntro'];
-            let memberMbti = row['memberMbti'];
-            let memberName = row['memberName'];
-            let memberNickname = row['memberNickname'];
-            let memberPos1 = row['memberPos1'];
-            let memberPos2 = row['memberPos2'];
-            let memberPos3 = row['memberPos3'];
-            let memberStyle = row['memberStyle'];
-
-            let temp_html = `
-            <div class="card">
-                    <div class="card-content">
-                        <div class="imageSec">
-                            <div class="image">
-                                <img src="${memberImage}" alt="Person 1">
-                            </div>
-                        </div>
-                        <div class="media-icons">
-                            <a href="${memberBlog}" target="_blank"><i class="fa-solid fa-blog blog-icon"></i></a>
-                            <a href="${memberGithub}" target="_blank"><i
-                                    class="fa-brands fa-github github-icon" ></i></a>
-                        </div>
-                        <div class="name-profession">
-                            <span class="name">${memberName}</span>
-                            <span class="tendency">MBTI : ${memberMbti}</span>
-                            <span class="promise">"${memberBio}"</span>
-                        </div>
-                        <button class="aboutMe" data-id="${doc.id}">상세 정보</button>
-                    </div>
-                </div>
-            `;
-            $('#member').append(temp_html);
-        });
-
-        $(document).ready(function () {
-            $("#header").load("header.html");
-            $(".aboutMe").click(function () {
-
-                let userId = $(this).data("id");
-                window.location.href = "memberDetail.html?userid=" + userId;
-            
-            });
-
-        })
-    </script>
-
 </head>
 
 <body>
@@ -117,5 +42,7 @@
     $(document).ready(function() {
         $("#header").load("./header.html");
     })
+</script>
+<script type="module" src="../script/mainpage.js">
 </script>
 </html>

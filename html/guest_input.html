@@ -10,52 +10,6 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/guestPopup.css">
     
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-        apiKey: "AIzaSyDx0t5JFwPcrDnqFICKyrrML2N1I60fWn0",
-        authDomain: "teamwebpage-51e54.firebaseapp.com",
-        projectId: "teamwebpage-51e54",
-        storageBucket: "teamwebpage-51e54.appspot.com",
-        messagingSenderId: "349501855402",
-        appId: "1:349501855402:web:12e8c26e7a8cbad03ba2d3"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        // 헤더 파일 불러오기
-        $(document).ready(function() {
-            $("#header").load("./header_popup.html");
-        })
-
-        $("#registbtn").click(async function () {
-            let name = $('#input-name').val();
-            let passwprd = $('#input-password').val();
-            let guestbook = $('#input-guestbook').val();
-            let today = new Date();
-            let formatDate = today.getFullYear().toString().slice(-2)+ "." + (today.getMonth()+1) + "." + today.getDate();
-
-            let doc = {
-                'input-name': name,
-                'input-password': passwprd,
-                'input-guestbook': guestbook, 
-                'timestamp': today, 
-                'date': formatDate
-            };
-
-            await addDoc(collection(db, "guestbook_entries"), doc);
-
-            alert('등록되었습니다!');
-            window.opener.postMessage('guestbookSubmitted', '*'); 
-            window.close();
-        });
-
-    </script>
-    
 </head>
 
 <body>
@@ -95,6 +49,13 @@
             </div>
         </div>
     </div>
+    <script type="module" src="../script/guest_input.js"></script>
+    <script>
+        // 헤더 파일 불러오기
+        $(document).ready(function() {
+            $("#header").load("./header_popup.html");
+        })
+    </script>
 </body>
 
 </html>
