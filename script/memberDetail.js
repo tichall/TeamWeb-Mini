@@ -8,13 +8,12 @@ import {
     } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDh6zLnyROVOfCWvNFUc7ZuA8vwcfetQfg",
-    authDomain: "sparta-c733d.firebaseapp.com",
-    projectId: "sparta-c733d",
-    storageBucket: "sparta-c733d.appspot.com",
-    messagingSenderId: "1031155272900",
-    appId: "1:1031155272900:web:cb870f935defdb8088cd91",
-    measurementId: "G-E2LVXM0BPR"
+    apiKey: "AIzaSyDx0t5JFwPcrDnqFICKyrrML2N1I60fWn0",
+    authDomain: "teamwebpage-51e54.firebaseapp.com",
+    projectId: "teamwebpage-51e54",
+    storageBucket: "teamwebpage-51e54.appspot.com",
+    messagingSenderId: "349501855402",
+    appId: "1:349501855402:web:12e8c26e7a8cbad03ba2d3"
 };
   
 // 파이어베이스 초기화 
@@ -123,7 +122,7 @@ $("#update").click(async function (){
     } else {
         // storage에 이미지 파일 저장
         let random = new Date().getTime();
-        let storageRef = ref(storage, `reviewImage/${userId}/` + random);
+        let storageRef = ref(storage, `profileImg/${userId}/` + random);
         
         const uploadTask = uploadBytesResumable(storageRef, file);
         
@@ -137,8 +136,9 @@ $("#update").click(async function (){
         () => {
             // 이미지 업로드 성공 시 실행 
             getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                // 기존 storage 이미지 삭제
+                //기존 storage 이미지 삭제
                 const deleteRef = ref(storage, object.memberImage);
+
                 deleteObject(deleteRef).then(() => {
                     console.log("기존 이미지 삭제 완료");
                 }).catch((error) => {

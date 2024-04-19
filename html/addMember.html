@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore, doc, collection, setDoc, getDocs, getDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+    import {
+    getStorage,
+    ref,
+    uploadBytesResumable, getDownloadURL, deleteObject
+    } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyDx0t5JFwPcrDnqFICKyrrML2N1I60fWn0",
+    authDomain: "teamwebpage-51e54.firebaseapp.com",
+    projectId: "teamwebpage-51e54",
+    storageBucket: "teamwebpage-51e54.appspot.com",
+    messagingSenderId: "349501855402",
+    appId: "1:349501855402:web:12e8c26e7a8cbad03ba2d3"
+    };
+        
+    
+    // 파이어베이스 초기화 
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    const memRef = doc(db, "team_member", "member5")
+
+    let setData = {
+        memberName : "이서연",
+        memberPw : "1234", 
+        memberImage : "12",
+        memberMbti : "INTP", 
+        memberHobby : "영화마니아",
+        memberNickname : "도파민중독",
+        memberBio : "어제보다 오늘 더 나은 개발자가 되겠습니다!",
+        memberGithub : "https://github.com/tichall",
+        memberBlog : "https://velog.io/@tichall001/posts",
+        memberIntro : "안녕하세요:) JAVA 5기 참여하게 된 24살 이서연입니다! 프로젝트 경험도 처음, 자바 스프링 공부도 처음인데 열심히 공부해서 잘 따라가보겠습니다 🙌 아직 아는 건 많이 없지만 앞으로 잘 부탁드려요😉",
+        memberPos1 : "제 의견은 말하되, 밀어붙이지 않아요!", 
+        memberPos2 : "고맙다는 말, 미안하다는 말은 바로바로!",
+        memberPos3 : "상대의 장점을 잘 발견하는 게 저의 장점!",
+        memberStyle : "편하게 소통하는 걸 선호합니다. 모르는 부분, 어려운 부분이 있으면 함께 이야기하고 싶어요!"
+    }
+
+    // await setDoc(memRef, setData, { capital: true }, { merge: true });
+
+
+</script>
+</html>
